@@ -76,9 +76,9 @@ size_t KSystemControl::Init::GetIntendedMemorySize() {
     default: // All invalid modes should go to 4GB.
         return 4_GiB;
     case Smc::MemorySize_6GB:
-        return 6_GiB;
+        return 4_GiB;
     case Smc::MemorySize_8GB:
-        return 8_GiB;
+        return 4_GiB;
     }
 }
 

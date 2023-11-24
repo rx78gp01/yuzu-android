@@ -1253,7 +1253,7 @@ u64 Device::GetDeviceMemoryUsage() const {
 
 void Device::CollectPhysicalMemoryInfo() {
     // Account for resolution scaling in memory limits
-    const size_t normal_memory = 6_GiB;
+    const size_t normal_memory = 4_GiB;
     const size_t scaler_memory = 1_GiB * Settings::values.resolution_info.ScaleUp(1);
 
     // Calculate limits using memory budget
@@ -1291,7 +1291,7 @@ void Device::CollectPhysicalMemoryInfo() {
     }
     const s64 available_memory = static_cast<s64>(device_access_memory - device_initial_usage);
     device_access_memory = static_cast<u64>(std::max<s64>(
-        std::min<s64>(available_memory - 8_GiB, 4_GiB), std::min<s64>(local_memory, 4_GiB)));
+        std::min<s64>(available_memory - 8_GiB, 2_GiB), std::min<s64>(local_memory, 2_GiB)));
 }
 
 void Device::CollectToolingInfo() {
